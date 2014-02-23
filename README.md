@@ -36,11 +36,11 @@ The basic structure of the project is given in the following way:
 ├── demo/
 │   └── index.html
 ├── dist/
-│   ├── jquery.boilerplate.js
+│   ├── jquery.fadeInAmate.js
 │   └── jquery.boilerplate.min.js
 ├── src/
 │   ├── jquery.boilerplate.coffee
-│   └── jquery.boilerplate.js
+│   └── jquery.fadeInAmate.js
 ├── .editorconfig
 ├── .gitignore
 ├── .jshintrc

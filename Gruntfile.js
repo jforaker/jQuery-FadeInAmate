@@ -20,8 +20,8 @@ module.exports = function(grunt) {
 		// Concat definitions
 		concat: {
 			dist: {
-				src: ["src/jquery.boilerplate.js"],
-				dest: "dist/jquery.boilerplate.js"
+				src: ["src/jquery.fadeInAmate.js"],
+				dest: "dist/jquery.fadeInAmate.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
 		// Lint definitions
 		jshint: {
-			files: ["src/jquery.boilerplate.js"],
+			files: ["src/jquery.fadeInAmate.js"],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -39,19 +39,29 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["dist/jquery.boilerplate.js"],
-				dest: "dist/jquery.boilerplate.min.js"
+				src: ["dist/jquery.fadeInAmate.js"],
+				dest: "dist/jquery.fadeInAmate.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
 			}
 		},
 
+        web_server: {
+            options: {
+                cors: true,
+                port: 8000,
+                nevercache: true,
+                logRequests: true
+            },
+            foo: 'bar' // For some reason an extra key with a non-object value is necessary
+        },
+
 		// CoffeeScript compilation
 		coffee: {
 			compile: {
 				files: {
-					"dist/jquery.boilerplate.js": "src/jquery.boilerplate.coffee"
+					"dist/jquery.fadeInAmate.js": "src/jquery.fadeInAmate.coffee"
 				}
 			}
 		}
@@ -62,8 +72,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-coffee");
+    grunt.loadNpmTasks('grunt-web-server');
 
-	grunt.registerTask("default", ["jshint", "concat", "uglify"]);
+//jshint
+    grunt.registerTask("default", [ "concat", "uglify", "web_server", "coffee"]);
 	grunt.registerTask("travis", ["jshint"]);
 
 };

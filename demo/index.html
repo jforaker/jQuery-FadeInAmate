@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jQuery Boilerplate</title>
+		<title>jQuery FadeInAmate</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="style.css" rel="stylesheet" type="text/css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../src/jquery.boilerplate.js"></script>
+		<script src="../src/jquery.fadeInAmate.js"></script>
 	</head>
 	<body>
-		<div id="element"></div>
+        <div id="main" class="container">
+            <!-- Header -->
+            <header>
+                <hgroup>
+                    <h1>jQuery FadeInAmate</h1>
+                    <h2>Jump-starting jQuery plugins development</h2>
+                </hgroup>
+            </header>
+
+            <div class="row">
+                <!-- Boilerplate -->
+                <div class="span3">
+                    <div class="box">
+                        <img class="big-illustration" alt="Spaceship" src="img/spaceship.png" />
+                        <h3>Boilerplate</h3>
+                        <p>The most popular template for beginners and above.</p>
+                        <a href="https://github.com/jquery-boilerplate/boilerplate/" target="_blank">Check it out</a>
+                    </div>
+                </div>
+                <!-- Patterns -->
+                <div class="span3">
+                    <div class="box">
+                        <img alt="Map" src="img/map.png" />
+                        <h3>Patterns</h3>
+                        <p>A variety of boilerplates catered towards the advanced developer.</p>
+                        <a href="https://github.com/jquery-boilerplate/patterns/" target="_blank">Check it out</a>
+                    </div>
+                </div>
+                <!-- Generator -->
+                <div class="span3">
+                    <div class="box box-hot">
+                        <img alt="Box" src="img/box.png" />
+                        <h3>Generator</h3>
+                        <p>Command-line tool to automate plugin's generation with Yeoman.</p>
+                        <a href="https://github.com/jquery-boilerplate/generator/" target="_blank">Check it out</a>
+                    </div>
+                </div>
+                <!-- Guides -->
+                <div class="span3">
+                    <div class="box">
+                        <img class="big-illustration" alt="Mortarboard" src="img/mortarboard.png" />
+                        <h3>Guides</h3>
+                        <p>Some useful explanations for those who are getting started.</p>
+                        <a href="https://github.com/jquery-boilerplate/jquery-boilerplate/wiki/_pages" target="_blank">Check it out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<script>
 			$(function() {
-				$("#element").defaultPluginName({
-					propertyName: "a custom value"
+				$(".span3").fadeInAmate({
+                    initialDelay: 2000,
+                    fadeInSpeed: 1000,
+                    animationDelay: 200
 				});
 			});
 		</script>

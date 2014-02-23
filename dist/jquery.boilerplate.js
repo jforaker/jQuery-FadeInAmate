@@ -1,5 +1,5 @@
 /*
- *  jQuery Boilerplate - v3.3.2
+ *  jQuery Boilerplate - v3.3.3
  *  A jump-start for jQuery plugins development.
  *  http://jqueryboilerplate.com
  *
@@ -22,7 +22,7 @@
 		// Create the defaults once
 		var pluginName = "defaultPluginName",
 				defaults = {
-				propertyName: "value"
+				color: "red"
 		};
 
 		// The actual plugin constructor

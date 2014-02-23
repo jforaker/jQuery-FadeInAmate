@@ -6,7 +6,7 @@
 		"Zeno Rocha <hi@zenorocha.com>"
 	],
 	"description": "A jump-start for jQuery plugins development.",
-	"main": "src/jquery.boilerplate.js",
+	"main": "src/jquery.fadeInAmate.js",
 	"keywords": [
 		"jquery",
 		"plugin",
