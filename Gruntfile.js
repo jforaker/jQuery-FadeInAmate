@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
 		// Import package manifest
-		pkg: grunt.file.readJSON("boilerplate.jquery.json"),
+		pkg: grunt.file.readJSON("package.json"),
 
 		// Banner definitions
 		meta: {
@@ -12,8 +12,7 @@ module.exports = function(grunt) {
 				" *  <%= pkg.description %>\n" +
 				" *  <%= pkg.homepage %>\n" +
 				" *\n" +
-				" *  Made by <%= pkg.author.name %>\n" +
-				" *  Under <%= pkg.licenses[0].type %> License\n" +
+				" *  Made by <%= pkg.author %>\n" +
 				" */\n"
 		},
 

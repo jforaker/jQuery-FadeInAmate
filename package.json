@@ -5,10 +5,10 @@
   "author": "Jake Foraker",
   "repository": {
     "type": "git",
-    "url": "http://github.com/jquery-boilerplate/jquery-boilerplate.git"
+    "url": "https://github.com/jforaker/jQuery-FadeInAmate.git"
   },
-  "homepage": "https://github.com/jquery-boilerplate/jquery-boilerplate/",
-  "version": "3.3.3",
+  "homepage": "https://github.com/jforaker/jQuery-FadeInAmate",
+  "version": "0.0.1",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",

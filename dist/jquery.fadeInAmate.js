@@ -1,10 +1,9 @@
 /*
- *  jQuery Boilerplate - v3.3.3
- *  A jump-start for jQuery plugins development.
- *  http://jqueryboilerplate.com
+ *  jQuery FadeInAmate - v0.0.1
+ *  A jQuery plugin that animates fading in page elements.
+ *  https://github.com/jforaker/jQuery-FadeInAmate
  *
- *  Made by Zeno Rocha
- *  Under MIT License
+ *  Made by Jake Foraker
  */
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
