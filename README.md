@@ -24,7 +24,7 @@
 		   initialDelay: 10,
            fadeInSpeed: 1000,
            animationDelay: 300,
-           bounce: true  
+           bounce: true
 	});
 	```
 
