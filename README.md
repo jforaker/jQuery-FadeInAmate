@@ -29,7 +29,7 @@
 	```
 
 
-# [Live Demo](http://jforaker.github.io/jQuery-FadeInAmate/demo/)
+# [Demo](http://jforaker.github.io/jQuery-FadeInAmate/demo/)
 
 
 #### License
