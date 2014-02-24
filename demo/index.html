@@ -15,106 +15,84 @@
             <!-- Header -->
             <header>
                 <hgroup>
+                    <h2>jQuery FadeInAmate</h2>
                 </hgroup>
             </header>
 
             <div class="row">
-                <!-- Boilerplate -->
-                <div class="span3">
+
+                <div class="span6 fade" style="display: none">
                     <div class="box">
-                        <img class="big-illustration" alt="Spaceship" src="img/spaceship.png" />
-                        <h3>Boilerplate</h3>
-                        <p>The most popular template for beginners and above.</p>
-                        <a href="https://github.com/jquery-boilerplate/boilerplate/" target="_blank">Check it out</a>
-                    </div>
-                </div>
-                <!-- Patterns -->
-                <div class="span3">
-                    <div class="box">
-                        <img alt="Map" src="img/map.png" />
-                        <h3>Patterns</h3>
-                        <p>A variety of boilerplates catered towards the advanced developer.</p>
-                        <a href="https://github.com/jquery-boilerplate/patterns/" target="_blank">Check it out</a>
-                    </div>
-                </div>
-                <!-- Generator -->
-                <div class="span3">
-                    <div class="box box-hot">
-                        <img alt="Box" src="img/box.png" />
-                        <h3>Generator</h3>
-                        <p>Command-line tool to automate plugin's generation with Yeoman.</p>
-                        <a href="https://github.com/jquery-boilerplate/generator/" target="_blank">Check it out</a>
-                    </div>
-                </div>
-                <!-- Guides -->
-                <div class="span3">
-                    <div class="box">
-                        <img class="big-illustration" alt="Mortarboard" src="img/mortarboard.png" />
-                        <h3>Guides</h3>
-                        <p>Some useful explanations for those who are getting started.</p>
-                        <a href="https://github.com/jquery-boilerplate/jquery-boilerplate/wiki/_pages" target="_blank">Check it out</a>
+                        <h3>jQuery FadeInAmate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum porta accumsan elit vitae euismod.
+                            Nunc sed nisl varius, cursus libero at, interdum orci. Etiam pharetra lacinia odio.</p>
+                        <a>Like a hot knife through butter</a>
                     </div>
                 </div>
 
-                <div class="span6">
+                <div class="span6 fade" style="display: none">
                     <div class="box">
-                        <h3>Boilerplate</h3>
-                        <p>The most popular template for beginners and above.</p>
+                        <h3>FadeInAmate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum porta accumsan elit vitae euismod.
+                            Nunc sed nisl varius, cursus libero at, interdum orci. Etiam pharetra lacinia odio.</p>
                         <a class="check" href="#">Check it out</a>
                     </div>
                 </div>
 
-                <div class="span6">
+                <div class="span6 fade" style="display: none">
                     <div class="box">
-                        <h3>Patterns</h3>
-                        <p>A variety of boilerplates catered towards the advanced developer.</p>
+                        <h3>FadeInAmate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum porta accumsan elit vitae euismod.
+                            Nunc sed nisl varius, cursus libero at, interdum orci. Etiam pharetra lacinia odio.</p>
                         <a class="check" href="#">Check it out</a>
                     </div>
                 </div>
 
-                <div class="span6">
-                    <div class="box box-hot">
-                        <h3>Generator</h3>
-                        <p>Command-line tool to automate plugin's generation with Yeoman.</p>
-                        <a class="check" href="#">Check it out</a>
-                    </div>
-                </div>
-
-                <div class="span6">
+                <div class="span6 fade" style="display: none">
                     <div class="box">
-                        <h3>Guides</h3>
-                        <p>Some useful explanations for those who are getting started.</p>
+                        <h3>FadeInAmate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum porta accumsan elit vitae euismod.
+                            Nunc sed nisl varius, cursus libero at, interdum orci. Etiam pharetra lacinia odio.</p>
                         <a class="check" href="#">Check it out</a>
                     </div>
                 </div>
 
-                <div class="span6">
-                    <h1>jQuery FadeInAmate</h1>
-                    <h2>Like a hot knife through butter</h2>
+                <div class="span6 fade" style="display: none">
+                    <div class="box">
+                        <h3>FadeInAmate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum porta accumsan elit vitae euismod.
+                            Nunc sed nisl varius, cursus libero at, interdum orci. Etiam pharetra lacinia odio.</p>
+                        <a class="check" href="#">Check it out</a>
+                    </div>
                 </div>
+
+                <div class="span6 fade" style="display: none">
+                    <div class="box">
+                        <h3>FadeInAmate</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum porta accumsan elit vitae euismod.
+                            Nunc sed nisl varius, cursus libero at, interdum orci. Etiam pharetra lacinia odio.</p>
+                        <a class="check" href="#">Check it out</a>
+                    </div>
+                </div>
+
             </div>
         </div>
 		<script>
-			$(function() {
 
-				$(".span6").fadeInAmate({
+			$(function() {
+				$(".fade").fadeInAmate({
                     initialDelay: 10,
                     fadeInSpeed: 1000,
-                    animationDelay: 200
+                    animationDelay: 300,
+                    bounce: true
 				});
 			});
-
-
-            $(".span6").click(function(e){
-                e.preventDefault();
-
-                console.log('fusaf');
-                $(this).fadeInAmate({
-                    initialDelay: 1000,
-                    fadeInSpeed: 2000,
-                    animationDelay: 500
-                });
-            })
 
 		</script>
 	</body>

@@ -17,7 +17,6 @@ html, body {
 body {
     background: #fefefe;
     color: #34495e;
-    font-family: "proxima-nova-1", "proxima-nova-2", sans-serif;
     font-family: "robotoregular", sans-serif;
     font-size: 14px;
     line-height: 1.231;
@@ -93,7 +92,7 @@ header {
 
 header h1 {
     color: #1da9cc;
-    font-family: "freight-sans-pro-1","freight-sans-pro-2";
+    font-family: "robotoregular", sans-serif;
     font-style: normal;
     font-weight: 700;
     line-height: 1.1;
@@ -103,7 +102,7 @@ header h1 {
 }
 
 header h2 {
-    font-family: "freight-sans-pro-1","freight-sans-pro-2";
+    font-family: "robotoregular", sans-serif;
     font-style: normal;
     font-weight: 400;
     margin-bottom: 4px;
@@ -169,16 +168,6 @@ header h2 {
     margin-bottom: 33px;
 }
 
-.box.box-hot:before {
-    background: url("../img/ribbon.png") 0 0 no-repeat;
-    background-size: 82px 82px;
-    content: "";
-    height: 82px;
-    position: absolute;
-    right: -4px;
-    top: -4px;
-    width: 82px;
-}
 
 
 .box a {

@@ -21,9 +21,10 @@
     // Create the defaults once
     var fadeInAmate = "fadeInAmate",
         defaults = {
-            initialDelay: 1000,
-            fadeInSpeed: 1000,
-            animationDelay: 200
+            initialDelay: 10,
+            fadeInSpeed: 500,
+            animationDelay: 500,
+            bounce: true
         };
 
     // The actual plugin constructor
@@ -41,53 +42,75 @@
 
     FadeInAmate.prototype = {
         init: function () {
-            // Place initialization logic here
-            // You already have access to the DOM element and
-            // the options via the instance, e.g. this.element
-            // and this.settings
-            // you can add more functions like the one below and
             // call them like so: this.yourOtherFunction(this.element, this.settings).
-
-
-            console.log(this);
 
             var $faders = document.getElementsByClassName(this.element.className),
                 fadersLength = $faders.length;
-
-//            $($faders).css({
-//                opacity: 0
-//            });
-
-
-            $($faders).hide();
 
             this.showUs($faders, this.settings, fadersLength);
         },
 
         showUs: function (items, settings, number) {
+            var that = this;
 
-            var initialDelay = settings.initialDelay,
-                speedSetting = settings.fadeInSpeed,
-                totalTime = settings.animationDelay,
-                num = number;
+            $(items).hide();
 
-  //          var fadeInFunc = function asdf(){
-                $.each(items, function(index, element){
+            var opts = {
+                initialDelay: settings.initialDelay,
+                fadeInSpeed : settings.fadeInSpeed,
+                animationDelay: settings.animationDelay,
+                bounceTrue :  settings.bounce === true,
+                bounceFalse: settings.bounce !== true
+            };
 
-                   // speedSetting += Math.ceil((speedSetting * (number)) / totalTime) + (number * 100);
-                   // console.log(speedSetting);
-                    var delayTime = index === 0 ? 0: totalTime * index;
+            var num = number;
 
-                    $(element).fadeIn(speedSetting)
-                        .delay(delayTime);
+            var runShowBounce = opts.bounceTrue;
 
-                });
-//            };
-            //$(fadeInFunc()).delay(initialDelay + 3000);
-            //setTimeout(fadeInFunc, initialDelay);
+            $.each(items, function(index, element){
 
+                var $el = $(element);
+                var delayTime = index === 0 ? opts.initialDelay: opts.initialDelay + (opts.animationDelay * index); //animationDelay
 
+                $el.css({
+                    position: 'relative',
+                    top: '-20px',
+                    transition: 'top 1s ease'
+                })
+                    .fadeIn(opts.fadeInSpeed).delay(delayTime);
+
+                console.log(delayTime)
+
+            });
+
+            if (runShowBounce) that.bouncer(items, opts);
+        },
+
+        bouncer: function(els, options){
+
+            var interval = options.fadeInSpeed + options.initialDelay,
+                index = 0,
+                length = $(els).length;
+
+            function getNext(){
+                setTimeout(function() {
+                    $(els[index]).css({top: 0});
+                    index++;
+
+                    console.log(index);
+
+                    if (index === length){
+                        index = 0;
+                    } else {
+                        getNext();
+                    }
+
+                }, (interval / length) * index);
+            }
+
+            getNext();
         }
+
     };
 
     // A really lightweight plugin wrapper around the constructor,
