@@ -16,7 +16,7 @@ html, body {
 
 body {
     background: #fefefe;
-    color: #34495e;
+    color: #004f70;
     font-family: "robotoregular", sans-serif;
     font-size: 14px;
     line-height: 1.231;
@@ -90,16 +90,7 @@ header {
     padding: 60px 0 70px;
 }
 
-header h1 {
-    color: #1da9cc;
-    font-family: "robotoregular", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.1;
-    font-size: 90px;
-    margin: 0;
-    text-align: center;
-}
+
 
 header h2 {
     font-family: "robotoregular", sans-serif;
@@ -110,13 +101,33 @@ header h2 {
     font-size: 40px;
     text-align: center;
 }
+header h4 {
+    color: #1da9cc;
+    font-family: "robotoregular", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+}
 
+header h5, a {
+    color: #59b691;
+    font-family: "robotoregular", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
 @media (max-width: 767px) {
     header h1 {
         font-size: 70px;
     }
 
-    header h2 {
+    header h4 {
         font-size: 30px;
     }
 }

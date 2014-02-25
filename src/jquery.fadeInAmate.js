@@ -69,8 +69,7 @@
                     position: 'relative',
                     top: '-20px',
                     transition: 'top 1s ease'
-                })
-                    .fadeIn(opts.fadeInSpeed).delay(delayTime);
+                }).fadeIn(opts.fadeInSpeed).delay(delayTime);
 
                 console.log(delayTime)
 

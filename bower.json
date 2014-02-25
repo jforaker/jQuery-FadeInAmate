@@ -1,9 +1,9 @@
 {
-	"name": "jquery-boilerplate",
+	"name": "jquery-fadeInAmate",
 	"version": "3.3.3",
 	"homepage": "http://jqueryboilerplate.com",
 	"authors": [
-		"Zeno Rocha <hi@zenorocha.com>"
+		"jake foraker"
 	],
 	"description": "A jump-start for jQuery plugins development.",
 	"main": "src/jquery.fadeInAmate.js",
@@ -12,7 +12,7 @@
 		"plugin",
 		"boilerplate",
 		"jquery-plugin",
-		"jquery-boilerplate"
+		"jquery-fadeInAmate"
 	],
 	"license": "MIT"
 }
