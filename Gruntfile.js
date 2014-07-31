@@ -63,7 +63,18 @@ module.exports = function(grunt) {
 					"dist/jquery.fadeInAmate.js": "src/jquery.fadeInAmate.coffee"
 				}
 			}
-		}
+		},
+
+        watch: {
+            scripts: {
+                files: ['**/*.js'],
+                tasks: ["jshint", "concat", "uglify", "web_server"],
+                options: {
+                    spawn: false,
+                    reload: true
+                }
+            }
+        }
 
 	});
 
@@ -72,9 +83,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-coffee");
     grunt.loadNpmTasks('grunt-web-server');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
 //jshint
-    grunt.registerTask("default", [ "concat", "uglify", "web_server", "coffee"]);
+    grunt.registerTask("default", [  "jshint", "concat", "uglify", "web_server", "watch"]);
 	grunt.registerTask("travis", ["jshint"]);
 
 };
