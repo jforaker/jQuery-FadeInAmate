@@ -21,10 +21,10 @@
 
 	```javascript
 	$("#element").fadeInAmate({
-		   initialDelay: 10,
-           fadeInSpeed: 1000,
-           animationDelay: 300,
-           bounce: true
+            initialDelay: 900,
+            fadeInSpeed: 1000,
+            animationDelay: 500,
+            bounce: true   //will slide down your element (maybe bounce is not the right word?)
 	});
 	```
 
