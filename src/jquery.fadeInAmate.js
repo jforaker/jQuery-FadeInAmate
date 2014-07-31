@@ -40,42 +40,45 @@
             var $faders = document.getElementsByClassName(this.element.className),
                 fadersLength = $faders.length;
 
+            $($faders).hide();
+
             this.showUs($faders, this.settings, fadersLength);
         },
 
         showUs: function (items, settings, number) {
-            var that = this;
 
-            $(items).hide();
+           // $(items).hide();
 
-            var opts = {
-                initialDelay: settings.initialDelay,
-                fadeInSpeed : settings.fadeInSpeed,
-                animationDelay: settings.animationDelay,
-                bounceTrue :  settings.bounce === true,
-                bounceFalse: settings.bounce !== true
-            };
-
-            var num = number;
-
-            var runShowBounce = opts.bounceTrue;
+            var that = this,
+                opts = {
+                    initialDelay: settings.initialDelay,
+                    fadeInSpeed : settings.fadeInSpeed,
+                    animationDelay: settings.animationDelay,
+                    bounceTrue :  settings.bounce === true
+                },
+                num = number,
+                runShowBounce = opts.bounceTrue;
 
             $.each(items, function(index, element){
 
-                var $el = $(element);
-                var delayTime = index === 0 ? opts.initialDelay: opts.initialDelay + (opts.animationDelay * index); //animationDelay
+                var $el = $(element),
+                    delayTime = index === 0 ? opts.initialDelay : opts.initialDelay + (opts.animationDelay * index + num), //animationDelay
+                    fadeInSpeed = opts.fadeInSpeed;
 
+                console.log(- $el.height() + 'px');
                 $el.css({
-                    position: 'relative',
-                    top: '-20px',
-                    transition: 'top 1s ease'
-                }).fadeIn(opts.fadeInSpeed).delay(delayTime);
-
-                console.log(delayTime)
-
+                    position: "relative",
+                    top: !opts.bounceTrue ? "0px" : - $el.height() / index + 'px',
+                    transition: "top 2s ease"
+                });
+                $el.fadeIn(fadeInSpeed).delay(delayTime);
             });
 
-            if (runShowBounce) that.bouncer(items, opts);
+            if (runShowBounce) {
+                that.bouncer(items, opts);
+              //  $(items[items.length]).css({top: - $(items).height() + 'px' * 5});
+
+            }
         },
 
         bouncer: function(els, options){
@@ -85,11 +88,10 @@
                 length = $(els).length;
 
             function getNext(){
-                setTimeout(function() {
-                    $(els[index]).css({top: 0});
-                    index++;
 
-                    console.log(index);
+                setTimeout(function() {
+                    $(els[index]).css({top: "0px"});
+                    index++;
 
                     if (index === length){
                         index = 0;
@@ -97,7 +99,7 @@
                         getNext();
                     }
 
-                }, (interval / length) * index);
+                }, (interval / index ) );
             }
 
             getNext();

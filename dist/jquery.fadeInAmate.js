@@ -47,42 +47,44 @@
             var $faders = document.getElementsByClassName(this.element.className),
                 fadersLength = $faders.length;
 
+            $($faders).hide();
+
             this.showUs($faders, this.settings, fadersLength);
         },
 
         showUs: function (items, settings, number) {
-            var that = this;
 
-            $(items).hide();
+           // $(items).hide();
 
-            var opts = {
-                initialDelay: settings.initialDelay,
-                fadeInSpeed : settings.fadeInSpeed,
-                animationDelay: settings.animationDelay,
-                bounceTrue :  settings.bounce === true,
-                bounceFalse: settings.bounce !== true
-            };
-
-            var num = number;
-
-            var runShowBounce = opts.bounceTrue;
+            var that = this,
+                opts = {
+                    initialDelay: settings.initialDelay,
+                    fadeInSpeed : settings.fadeInSpeed,
+                    animationDelay: settings.animationDelay,
+                    bounceTrue :  settings.bounce === true,
+                    bounceFalse: settings.bounce !== true
+                },
+                num = number,
+                runShowBounce = opts.bounceTrue;
 
             $.each(items, function(index, element){
 
-                var $el = $(element);
-                var delayTime = index === 0 ? opts.initialDelay: opts.initialDelay + (opts.animationDelay * index); //animationDelay
+                console.log(element);
+
+                var $el = $(element),
+                    delayTime = index === 0 ? opts.initialDelay: opts.initialDelay + (opts.animationDelay * index + num); //animationDelay
+                    //fadeInSpeed = index === 0 ? opts.fadeInSpeed: (opts.initialDelay + (opts.fadeInSpeed));
 
                 $el.css({
-                    position: 'relative',
-                    top: '-20px',
-                    transition: 'top 1s ease'
+                    position: "relative",
+                    top: "-120px",
+                    transition: "top 2.5s ease"
                 }).fadeIn(opts.fadeInSpeed).delay(delayTime);
-
-                console.log(delayTime)
-
             });
 
-            if (runShowBounce) that.bouncer(items, opts);
+            if (runShowBounce) {
+                that.bouncer(items, opts);
+            }
         },
 
         bouncer: function(els, options){
@@ -93,7 +95,7 @@
 
             function getNext(){
                 setTimeout(function() {
-                    $(els[index]).css({top: 0});
+                    $(els[index]).css({top: index * -130}); //asdfjklkjlasdfsdfasddfasdfasdfsdfasd
                     index++;
 
                     console.log(index);
