@@ -99,7 +99,7 @@
                         getNext();
                     }
 
-                }, (interval / index ) );
+                }, (interval / index));
             }
 
             getNext();
