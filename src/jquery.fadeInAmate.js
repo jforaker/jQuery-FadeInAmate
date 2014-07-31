@@ -65,10 +65,9 @@
                     delayTime = index === 0 ? opts.initialDelay : opts.initialDelay + (opts.animationDelay * index + num), //animationDelay
                     fadeInSpeed = opts.fadeInSpeed;
 
-                console.log(- $el.height() + 'px');
                 $el.css({
                     position: "relative",
-                    top: !opts.bounceTrue ? "0px" : - $el.height() / index + 'px',
+                    top: !opts.bounceTrue ? "0px" : - $el.height() / index + "px",
                     transition: "top 2s ease"
                 });
                 $el.fadeIn(fadeInSpeed).delay(delayTime);
@@ -76,8 +75,6 @@
 
             if (runShowBounce) {
                 that.bouncer(items, opts);
-              //  $(items[items.length]).css({top: - $(items).height() + 'px' * 5});
-
             }
         },
 

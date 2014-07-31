@@ -61,25 +61,23 @@
                     initialDelay: settings.initialDelay,
                     fadeInSpeed : settings.fadeInSpeed,
                     animationDelay: settings.animationDelay,
-                    bounceTrue :  settings.bounce === true,
-                    bounceFalse: settings.bounce !== true
+                    bounceTrue :  settings.bounce === true
                 },
                 num = number,
                 runShowBounce = opts.bounceTrue;
 
             $.each(items, function(index, element){
 
-                console.log(element);
-
                 var $el = $(element),
-                    delayTime = index === 0 ? opts.initialDelay: opts.initialDelay + (opts.animationDelay * index + num); //animationDelay
-                    //fadeInSpeed = index === 0 ? opts.fadeInSpeed: (opts.initialDelay + (opts.fadeInSpeed));
+                    delayTime = index === 0 ? opts.initialDelay : opts.initialDelay + (opts.animationDelay * index + num), //animationDelay
+                    fadeInSpeed = opts.fadeInSpeed;
 
                 $el.css({
                     position: "relative",
-                    top: "-120px",
-                    transition: "top 2.5s ease"
-                }).fadeIn(opts.fadeInSpeed).delay(delayTime);
+                    top: !opts.bounceTrue ? "0px" : - $el.height() / index + "px",
+                    transition: "top 2s ease"
+                });
+                $el.fadeIn(fadeInSpeed).delay(delayTime);
             });
 
             if (runShowBounce) {
@@ -94,11 +92,10 @@
                 length = $(els).length;
 
             function getNext(){
-                setTimeout(function() {
-                    $(els[index]).css({top: index * -130}); //asdfjklkjlasdfsdfasddfasdfasdfsdfasd
-                    index++;
 
-                    console.log(index);
+                setTimeout(function() {
+                    $(els[index]).css({top: "0px"});
+                    index++;
 
                     if (index === length){
                         index = 0;
@@ -106,7 +103,7 @@
                         getNext();
                     }
 
-                }, (interval / length) * index);
+                }, (interval / index));
             }
 
             getNext();
