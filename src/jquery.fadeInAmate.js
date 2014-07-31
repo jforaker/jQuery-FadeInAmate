@@ -47,8 +47,6 @@
 
         showUs: function (items, settings, number) {
 
-           // $(items).hide();
-
             var that = this,
                 opts = {
                     initialDelay: settings.initialDelay,
