@@ -21,9 +21,9 @@
     // Create the defaults once
     var fadeInAmate = "fadeInAmate",
         defaults = {
-            initialDelay: 10,
-            fadeInSpeed: 500,
-            animationDelay: 500,
+            initialDelay: 250,
+            fadeInSpeed: 900,
+            animationDelay: 300,
             bounce: true
         };
 
@@ -42,7 +42,6 @@
 
     FadeInAmate.prototype = {
         init: function () {
-            // call them like so: this.yourOtherFunction(this.element, this.settings).
 
             var $faders = document.getElementsByClassName(this.element.className),
                 fadersLength = $faders.length;
@@ -50,6 +49,7 @@
             $($faders).hide();
 
             this.showUs($faders, this.settings, fadersLength);
+
         },
 
         showUs: function (items, settings, number) {
@@ -67,7 +67,7 @@
             $.each(items, function(index, element){
 
                 var $el = $(element),
-                    delayTime = index === 0 ? opts.initialDelay : opts.initialDelay + (opts.animationDelay * index + num), //animationDelay
+                    delayTime = index === 0 ? opts.initialDelay : opts.initialDelay + (opts.animationDelay * index + num),
                     fadeInSpeed = opts.fadeInSpeed;
 
                 $el.css({
@@ -109,8 +109,7 @@
 
     };
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
+    // A really lightweight plugin wrapper around the constructor, preventing against multiple instantiations
     $.fn[ fadeInAmate ] = function ( options ) {
         this.each(function() {
             if ( !$.data( this, "plugin_" + fadeInAmate ) ) {
@@ -120,6 +119,25 @@
 
         // chain jQuery functions
         return this;
+    };
+
+    $.fn.fadeInAmate.resetFunc = function(els, newOpts) {
+        console.log(newOpts);
+
+        function reffr(cb) {
+            $.ajax({
+                url: "index.html",
+                success:function(data) {
+                    cb(data);
+                }
+            });
+        }
+
+        reffr(function(){
+           //return $.fn.fadeInAmate($(els), newOpts);
+           return new FadeInAmate($(els), newOpts);
+        });
+
     };
 
 })( jQuery, window, document );

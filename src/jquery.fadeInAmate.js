@@ -117,22 +117,19 @@
     $.fn.fadeInAmate.resetFunc = function(els, newOpts) {
         console.log(newOpts);
 
-
-            function reffr(cb) {
-                $.ajax({
-                    url: "index.html",
-                    context: document.body,
-                    success:function(data) {
-                        cb(data);
-                    }
-                });
-            }
-
-            reffr(function(output){
-                return new FadeInAmate($(els), newOpts);
+        function reffr(cb) {
+            $.ajax({
+                url: "index.html",
+                success:function(data) {
+                    cb(data);
+                }
             });
+        }
 
-
+        reffr(function(){
+           //return $.fn.fadeInAmate($(els), newOpts);
+           return new FadeInAmate($(els), newOpts);
+        });
 
     };
 
