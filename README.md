@@ -20,7 +20,7 @@
 3. Call the plugin:
 
 	```javascript
-	$("#element").fadeInAmate({
+	$(".some-element").fadeInAmate({
             initialDelay: 900,
             fadeInSpeed: 1000,
             animationDelay: 500,
