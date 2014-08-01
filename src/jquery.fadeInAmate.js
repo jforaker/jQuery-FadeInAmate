@@ -117,19 +117,33 @@
     $.fn.fadeInAmate.resetFunc = function(els, newOpts) {
         console.log(newOpts);
 
-        function reffr(cb) {
-            $.ajax({
-                url: "index.html",
-                success:function(data) {
-                    cb(data);
-                }
-            });
-        }
+        return new FadeInAmate($(els), newOpts);
 
-        reffr(function(){
-           //return $.fn.fadeInAmate($(els), newOpts);
-           return new FadeInAmate($(els), newOpts);
-        });
+//        $(els).fadeInAmate({
+//            initialDelay: newOpts.initialDelay,
+//            fadeInSpeed: newOpts.fadeInSpeed,
+//            animationDelay: newOpts.animationDelay
+//        });
+
+//        function reffr(cb) {
+//            $.ajax({
+//                url: "index.html",
+//                success:function(data) {
+//                    cb(data);
+//                }
+//            });
+//        }
+//
+//        reffr(function(){
+//           //return $.fn.fadeInAmate($(els), newOpts);
+//
+////            $(".fadeInAmate").updateAmate({
+////                initialDelay: a,
+////                fadeInSpeed: b,
+////                animationDelay: c
+////            });
+//           return new FadeInAmate($(els), newOpts);
+//        });
 
     };
 

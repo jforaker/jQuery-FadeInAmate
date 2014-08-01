@@ -89,49 +89,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="span5 fadeInAmate" style="width: 100%;">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="well well-sm">
-                    <form id="edit-form" class="form-horizontal" action="frame.html" target="frame" method="post">
-                        <fieldset>
-                            <legend class="text-center">Edit and test</legend>
-
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="init-delay">Initial delay</label>
-                                <div class="col-md-9">
-                                    <input id="init-delay" name="init-delay" type="text" placeholder="" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="fade-in-speed">Fade in speed</label>
-                                <div class="col-md-9">
-                                    <input id="fade-in-speed" name="fade-in-speed" type="text" placeholder="" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="anim-delay">Animation delay</label>
-                                <div class="col-md-9">
-                                    <input id="anim-delay" name="fade-in-speed" type="text" placeholder="" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-12 text-right">
-                                    <button id="set" type="submit" class="btn btn-primary btn-lg">Submit</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <iframe id="frame" src="" style="border: 1px solid red; height: 800px; width: 100%">
-
-        </iframe>
     </div>
 </div>
 
@@ -139,22 +96,23 @@
 <script>
 
     $(function() {
-        var frame = $('#frame');
 
-        $('#set').click(function(e){
-            e.preventDefault();
-            frame.show();
-            var i = $('#init-delay').val();
-            var f = $('#fade-in-speed').val();
-            var a = $('#anim-delay').val();
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
 
-            $("#frame").attr("src", "frame.html?initalDelay=" + i + "&fadeInSpeed=" + f + "&animationDelay=" + a);
-        });
+        var initialDelay = getParameterByName('initialDelay');
+        var fadeInSpeed = getParameterByName('fadeInSpeed');
+        var animationDelay = getParameterByName('animationDelay');
+
 
         $(".fadeInAmate").fadeInAmate({
-            initialDelay: 250,
-            fadeInSpeed: 900,
-            animationDelay: 300,
+            initialDelay: initialDelay,
+            fadeInSpeed: fadeInSpeed,
+            animationDelay: animationDelay,
             bounce: true
         });
     });
