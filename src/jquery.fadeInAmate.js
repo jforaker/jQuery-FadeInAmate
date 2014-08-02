@@ -43,6 +43,8 @@
 
             this.showUs($faders, this.settings, fadersLength);
 
+            console.log($faders)
+
         },
 
         showUs: function (items, settings, number) {
@@ -65,7 +67,7 @@
 
                 $el.css({
                     position: "relative",
-                    top: !opts.bounceTrue ? "0px" : - $el.height() / index + "px",
+                    top: !opts.bounceTrue ? "0px" : -(($el.height() / index) / 5 ) + "px",
                     transition: "top 2s ease"
                 });
                 $el.fadeIn(fadeInSpeed).delay(delayTime);
@@ -112,39 +114,6 @@
 
         // chain jQuery functions
         return this;
-    };
-
-    $.fn.fadeInAmate.resetFunc = function(els, newOpts) {
-        console.log(newOpts);
-
-        return new FadeInAmate($(els), newOpts);
-
-//        $(els).fadeInAmate({
-//            initialDelay: newOpts.initialDelay,
-//            fadeInSpeed: newOpts.fadeInSpeed,
-//            animationDelay: newOpts.animationDelay
-//        });
-
-//        function reffr(cb) {
-//            $.ajax({
-//                url: "index.html",
-//                success:function(data) {
-//                    cb(data);
-//                }
-//            });
-//        }
-//
-//        reffr(function(){
-//           //return $.fn.fadeInAmate($(els), newOpts);
-//
-////            $(".fadeInAmate").updateAmate({
-////                initialDelay: a,
-////                fadeInSpeed: b,
-////                animationDelay: c
-////            });
-//           return new FadeInAmate($(els), newOpts);
-//        });
-
     };
 
 })( jQuery, window, document );

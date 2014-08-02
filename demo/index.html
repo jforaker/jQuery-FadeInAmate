@@ -9,6 +9,7 @@
     <link href="bootstrap.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="../src/jquery.fadeInAmate.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
 </head>
 <body>
 <div id="main" class="container">
@@ -100,21 +101,21 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="init-delay">Initial delay</label>
                                 <div class="col-md-9">
-                                    <input id="init-delay" name="init-delay" type="text" placeholder="" class="form-control">
+                                    <input id="init-delay" name="init-delay" type="text" placeholder="" class="form-control"  data-validation="number" data-validation-allowing="range[0;3500]" data-validation-error-msg="must be between 0 and 3500">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="fade-in-speed">Fade in speed</label>
                                 <div class="col-md-9">
-                                    <input id="fade-in-speed" name="fade-in-speed" type="text" placeholder="" class="form-control">
+                                    <input id="fade-in-speed" name="fade-in-speed" type="text" placeholder="" class="form-control" data-validation="number" data-validation-allowing="range[0;3500]" data-validation-error-msg="must be between 0 and 3500">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="anim-delay">Animation delay</label>
                                 <div class="col-md-9">
-                                    <input id="anim-delay" name="fade-in-speed" type="text" placeholder="" class="form-control">
+                                    <input id="anim-delay" name="fade-in-speed" type="text" placeholder="" class="form-control" data-validation="number" data-validation-allowing="range[0;3500]" data-validation-error-msg="must be between 0 and 3500" >
                                 </div>
                             </div>
 
@@ -129,7 +130,7 @@
             </div>
         </div>
 
-        <iframe id="frame" src="" style="border: 1px solid red; height: 800px; width: 100%">
+        <iframe id="frame" src="" style="height: 800px; width: 100%">
 
         </iframe>
     </div>
@@ -140,15 +141,23 @@
 
     $(function() {
         var frame = $('#frame');
+        var form = $("#edit-form");
 
         $('#set').click(function(e){
             e.preventDefault();
-            frame.show();
             var i = $('#init-delay').val();
             var f = $('#fade-in-speed').val();
             var a = $('#anim-delay').val();
 
-            $("#frame").attr("src", "frame.html?initalDelay=" + i + "&fadeInSpeed=" + f + "&animationDelay=" + a);
+            frame.fadeIn();
+
+            $('html, body').animate({
+                scrollTop: form.offset().top
+            }, 500, function(){
+
+                $("#frame").attr("src", "frame.html?CHECK=" + i + "&fadeInSpeed=" + f + "&animationDelay=" + a);
+            });
+
         });
 
         $(".fadeInAmate").fadeInAmate({
@@ -157,6 +166,10 @@
             animationDelay: 300,
             bounce: true
         });
+
+        $.validate();
+
+
     });
 
 </script>
