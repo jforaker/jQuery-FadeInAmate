@@ -1,11 +1,11 @@
 {
 	"name": "jquery-fadeInAmate",
 	"version": "3.3.3",
-	"homepage": "http://jqueryboilerplate.com",
+	"homepage": "https://github.com/jforaker/jQuery-FadeInAmate",
 	"authors": [
 		"jake foraker"
 	],
-	"description": "A jump-start for jQuery plugins development.",
+	"description": "A jQuery plugin that incrementally fades in elements.",
 	"main": "src/jquery.fadeInAmate.js",
 	"keywords": [
 		"jquery",
