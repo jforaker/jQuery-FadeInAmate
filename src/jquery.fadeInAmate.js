@@ -43,8 +43,6 @@
 
             this.showUs($faders, this.settings, fadersLength);
 
-            console.log($faders)
-
         },
 
         showUs: function (items, settings, number) {

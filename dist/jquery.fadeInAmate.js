@@ -72,7 +72,7 @@
 
                 $el.css({
                     position: "relative",
-                    top: !opts.bounceTrue ? "0px" : - $el.height() / index + "px",
+                    top: !opts.bounceTrue ? "0px" : -(($el.height() / index) / 5 ) + "px",
                     transition: "top 2s ease"
                 });
                 $el.fadeIn(fadeInSpeed).delay(delayTime);

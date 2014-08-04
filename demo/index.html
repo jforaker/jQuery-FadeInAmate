@@ -121,7 +121,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-12 text-right">
-                                    <button id="set" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    <button id="set" type="submit" class="btn btn-primary btn-lg disabled   ">Submit</button>
                                 </div>
                             </div>
                         </fieldset>
@@ -142,6 +142,15 @@
     $(function() {
         var frame = $('#frame');
         var form = $("#edit-form");
+
+        $('input').on('input', function(){
+            var allValid = $('#edit-form input').length == $('#edit-form input.valid').length;
+            if(allValid){
+                $('#set').removeClass('disabled');
+            } else {
+                $('#set').addClass('disabled');
+            }
+        });
 
         $('#set').click(function(e){
             e.preventDefault();
@@ -168,8 +177,6 @@
         });
 
         $.validate();
-
-
     });
 
 </script>
